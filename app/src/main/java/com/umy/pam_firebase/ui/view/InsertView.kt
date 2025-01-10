@@ -13,4 +13,6 @@ fun InsertMhsView(
     onNavigate: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: InsertViewModel = viewModel(factory = PenyediaViewModel.Factory)
-)
+) {
+    val uiState = viewModel.uiState // State utama untuk loading, success, error
+}
