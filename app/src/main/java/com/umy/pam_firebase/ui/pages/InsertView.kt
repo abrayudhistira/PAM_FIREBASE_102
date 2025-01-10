@@ -1,4 +1,4 @@
-package com.umy.pam_firebase.ui.view
+package com.umy.pam_firebase.ui.pages
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -167,31 +167,35 @@ fun FormMahasiswa(
     Column (
         modifier = modifier.fillMaxWidth()
     ) {
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = mahasiswaEvent.nama,
-            onValueChange = {
-                onValueChange(mahasiswaEvent.copy(nama = it))
-            },
-            label = { Text("Nama") },
-            isError = errorState.nama != null,
-            placeholder = { Text("Masukkan nama") },
-        )
+        mahasiswaEvent.nama?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(nama = it))
+                },
+                label = { Text("Nama") },
+                isError = errorState.nama != null,
+                placeholder = { Text("Masukkan nama") },
+            )
+        }
         Text(
             text = errorState.nama ?: "",
             color = Color.Red
         )
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = mahasiswaEvent.nim, onValueChange = {
-                onValueChange(mahasiswaEvent.copy(nim = it))
-            },
-            label = { Text("NIM") },
-            isError = errorState.nim != null,
-            placeholder = { Text("Masukkan NIM") },
-            keyboardOptions = KeyboardOptions(keyboardType =
-            KeyboardType.Number)
-        )
+        mahasiswaEvent.nim?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it, onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(nim = it))
+                },
+                label = { Text("NIM") },
+                isError = errorState.nim != null,
+                placeholder = { Text("Masukkan NIM") },
+                keyboardOptions = KeyboardOptions(keyboardType =
+                KeyboardType.Number)
+            )
+        }
         Text(text = errorState.nim ?: "", color = Color.Red)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Jenis Kelamin")
@@ -220,16 +224,18 @@ fun FormMahasiswa(
             text = errorState.jenisKelamin ?: "",
             color = Color.Red
         )
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = mahasiswaEvent.alamat,
-            onValueChange = {
-                onValueChange(mahasiswaEvent.copy(alamat = it))
-            },
-            label = { Text("Alamat") },
-            isError = errorState.alamat != null,
-            placeholder = { Text("Masukkan alamat") },
-        )
+        mahasiswaEvent.alamat?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(alamat = it))
+                },
+                label = { Text("Alamat") },
+                isError = errorState.alamat != null,
+                placeholder = { Text("Masukkan alamat") },
+            )
+        }
         Text(text = errorState.alamat ?: "", color = Color.Red)
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Kelas")
@@ -254,18 +260,20 @@ fun FormMahasiswa(
             text = errorState.kelas ?: "",
             color = Color.Red
         )
-        OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = mahasiswaEvent.angkatan,
-            onValueChange = {
-                onValueChange(mahasiswaEvent.copy(angkatan = it))
-            },
-            label = { Text("Angkatan") },
-            isError = errorState.angkatan != null,
-            placeholder = { Text("Masukkan angkatan") },
-            keyboardOptions = KeyboardOptions(keyboardType =
-            KeyboardType.Number)
-        )
+        mahasiswaEvent.angkatan?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(angkatan = it))
+                },
+                label = { Text("Angkatan") },
+                isError = errorState.angkatan != null,
+                placeholder = { Text("Masukkan angkatan") },
+                keyboardOptions = KeyboardOptions(keyboardType =
+                KeyboardType.Number)
+            )
+        }
         Text(text = errorState.angkatan ?: "", color = Color.Red)
     }
 }
