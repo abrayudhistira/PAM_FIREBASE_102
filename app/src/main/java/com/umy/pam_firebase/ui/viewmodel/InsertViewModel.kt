@@ -65,3 +65,10 @@ class InsertViewModel (
         uiState = FormState.Idle
     }
 }
+// membuat sealed class form state
+sealed class FormState {
+    object Idle : FormState()
+    object Loading : FormState()
+    data class Success(val message: String) : FormState()
+    data class Error(val message: String) : FormState()
+}
