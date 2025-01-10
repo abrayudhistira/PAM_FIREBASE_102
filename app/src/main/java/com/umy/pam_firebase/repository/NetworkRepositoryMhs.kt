@@ -12,7 +12,12 @@ class NetworkRepositoryMhs(
     private val firestore: FirebaseFirestore
 ) : RepositoryMhs {
     override suspend fun insertMhs(mahasiswa: Mahasiswa) {
-        firestore.collection("Mahasiswa").add(mahasiswa).await() //Membuat Method untuk  Insert Data kedalam Collection Mahasiswa
+        try {
+            firestore.collection("Mahasiswa").add(mahasiswa)
+                .await() //Membuat Method untuk  Insert Data kedalam Collection Mahasiswa
+        } catch (e: Exception) {
+            throw Exception("Gagal menambahkan data mahasiswa : ${e.message}") //Tambahkan Debugging untuk excpetion error
+        }
     }
 
     override fun getAllMhs(): Flow<List<Mahasiswa>> = callbackFlow {
