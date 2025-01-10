@@ -28,12 +28,12 @@ class InsertViewModel (
     fun validateFields() : Boolean {
         val event = uiEvent.insertUiEvent
         val errorState = FormErrorState(
-            nim = if (event.nim.isNotEmpty()) null else "NIM tidak boleh kosong",
-            nama = if (event.nama.isNotEmpty()) null else "Nama tidak boleh kosong",
-            jenisKelamin = if (event.jenisKelamin.isNotEmpty()) null else "Jenis Kelamin tidak boleh kosong",
-            alamat = if (event.alamat.isNotEmpty()) null else "Alamat tidak boleh kosong",
-            kelas = if (event.kelas.isNotEmpty()) null else "Kelas tidak boleh kosong",
-            angkatan = if (event.angkatan.isNotEmpty()) null else "angkatan tidak boleh kosong"
+            nim = if (event.nim?.isNotEmpty() == true) null else "NIM tidak boleh kosong",
+            nama = if (event.nama?.isNotEmpty() == true) null else "Nama tidak boleh kosong",
+            jenisKelamin = if (event.jenisKelamin?.isNotEmpty() == true) null else "Jenis Kelamin tidak boleh kosong",
+            alamat = if (event.alamat?.isNotEmpty() == true) null else "Alamat tidak boleh kosong",
+            kelas = if (event.kelas?.isNotEmpty() == true) null else "Kelas tidak boleh kosong",
+            angkatan = if (event.angkatan?.isNotEmpty() == true) null else "angkatan tidak boleh kosong"
         )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
