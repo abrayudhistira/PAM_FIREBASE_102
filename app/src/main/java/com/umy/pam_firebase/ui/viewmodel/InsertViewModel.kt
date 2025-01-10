@@ -35,4 +35,8 @@ class InsertViewModel (
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
     }
+    // Fungsi insert view model
+    fun insertMhs() {
+
+    }
 }
