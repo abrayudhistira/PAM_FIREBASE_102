@@ -14,7 +14,7 @@ object PenyediaViewModel {
                 mahasiswaApp().containerApp.repositoryMhs
             )
             InsertViewModel(
-                Mhs().Container.repositoryMhs
+                Mhs().container.repositoryMhs
             )
         }
     }
