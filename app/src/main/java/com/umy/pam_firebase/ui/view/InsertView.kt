@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.umy.pam_firebase.ui.viewmodel.FormErrorState
 import com.umy.pam_firebase.ui.viewmodel.FormState
 import com.umy.pam_firebase.ui.viewmodel.InsertUiState
 import com.umy.pam_firebase.ui.viewmodel.InsertViewModel
@@ -143,5 +144,15 @@ fun InsertBodyMhs(
             }
         }
     }
+}
+
+@Composable
+fun FormMahasiswa(
+    mahasiswaEvent: MahasiswaEvent = MahasiswaEvent(),
+    onValueChange: (MahasiswaEvent) -> Unit,
+    errorState: FormErrorState = FormErrorState(),
+    modifier: Modifier = Modifier
+
+) {
 
 }
