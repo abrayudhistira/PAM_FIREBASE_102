@@ -18,7 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.umy.pam_firebase.ui.viewmodel.FormState
+import com.umy.pam_firebase.ui.viewmodel.InsertUiState
 import com.umy.pam_firebase.ui.viewmodel.InsertViewModel
+import com.umy.pam_firebase.ui.viewmodel.MahasiswaEvent
 import com.umy.pam_firebase.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -96,6 +98,15 @@ fun InsertMhsView(
             )
         }
     }
+}
 
+@Composable
+fun InsertBodyMhs(
+    modifier: Modifier = Modifier,
+    onValueChange: (MahasiswaEvent) -> Unit,
+    uiState: InsertUiState,
+    onClick: () -> Unit,
+    homeUiState: FormState
+) {
 
 }
