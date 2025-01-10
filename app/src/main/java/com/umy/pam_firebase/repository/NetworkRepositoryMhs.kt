@@ -6,12 +6,13 @@ import com.umy.pam_firebase.model.Mahasiswa
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.tasks.await
 
 class NetworkRepositoryMhs(
     private val firestore: FirebaseFirestore
 ) : RepositoryMhs {
     override suspend fun insertMhs(mahasiswa: Mahasiswa) {
-        TODO("Not yet implemented")
+        firestore.collection("Mahasiswa").add(mahasiswa).await() //Membuat Method untuk  Insert Data kedalam Collection Mahasiswa
     }
 
     override fun getAllMhs(): Flow<List<Mahasiswa>> = callbackFlow {
