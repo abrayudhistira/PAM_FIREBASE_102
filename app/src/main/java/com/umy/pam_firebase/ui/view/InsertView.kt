@@ -15,4 +15,5 @@ fun InsertMhsView(
     viewModel: InsertViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val uiState = viewModel.uiState // State utama untuk loading, success, error
+    val uiEvent = viewModel.uiEvent // State untuk form dan validasi
 }
