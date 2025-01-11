@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.umy.pam_firebase.ui.navigasi.PengelolaHalaman
 import com.umy.pam_firebase.ui.pages.HomeView
 import com.umy.pam_firebase.ui.theme.PAM_FIREBASETheme
 
@@ -21,15 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PAM_FIREBASETheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeView(
-                        navigateToItemEntry = {
-                            // Tambahkan navigasi ke layar entri jika ada
-                        },
-                        onDetailClick = { nim ->
-                            // Tambahkan navigasi ke halaman detail jika ada
-                        },
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    PengelolaHalaman(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
