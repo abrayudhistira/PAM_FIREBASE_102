@@ -32,7 +32,7 @@ import com.umy.pam_firebase.ui.viewmodel.PenyediaViewModel
 fun HomeView(
     navigateToItemEntry:()->Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (String) -> Unit ={},
+    onDetailClick: (String) -> Unit ,
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()

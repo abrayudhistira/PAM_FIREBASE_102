@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.umy.pam_firebase.ui.pages.HomeView
 import com.umy.pam_firebase.ui.pages.InsertMhsView
+import com.umy.pam_firebase.ui.pages.MahasiswaDetailView
 
 @Composable
 fun PengelolaHalaman(
@@ -24,6 +25,9 @@ fun PengelolaHalaman(
                 navigateToItemEntry = {
                     navController.navigate(DestinasiInsert.route)
                 },
+                onDetailClick = { nim ->
+                    navController.navigate(DestinasiDetail.createRoute(nim)) // navigate to detail view
+                }
             )
         }
         composable(DestinasiInsert.route) {
@@ -33,6 +37,10 @@ fun PengelolaHalaman(
                     navController.navigate(DestinasiHome.route)
                 }
             )
+        }
+        composable(DestinasiDetail.route) { backStackEntry ->
+            val nim = backStackEntry.arguments?.getString("nim") ?: ""
+            MahasiswaDetailView(nim = nim)
         }
     }
 }

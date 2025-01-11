@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.umy.pam_firebase.model.Mahasiswa
 import com.umy.pam_firebase.repository.RepositoryMhs
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
@@ -46,6 +47,10 @@ class HomeViewModel(
                 mhsUiState = HomeUiState.Error(e)
             }
         }
+    }
+
+    fun getMhsDetail(nim: String): Flow<Mahasiswa> {
+        return repoMhs.getMhs(nim)
     }
 }
 
