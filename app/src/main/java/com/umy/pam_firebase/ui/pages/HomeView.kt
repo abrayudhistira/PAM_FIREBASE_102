@@ -147,7 +147,7 @@ fun ListMahasiswa(
         items(items = listMhs) { mhs ->
             CardMhs(
                 mhs = mhs,
-                onClick = { onClick(mhs.nim) },
+                onClick = { mhs.nim?.let { onClick(it) } },
                 onDelete = { onDelete(mhs) }
             )
         }
@@ -175,7 +175,7 @@ fun CardMhs(
             ) {
                 Icon(imageVector = Icons.Filled.Person, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text = mhs.nama, fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                mhs.nama?.let { Text(text = it, fontWeight = FontWeight.Bold, fontSize = 20.sp) }
             }
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -183,7 +183,7 @@ fun CardMhs(
             ) {
                 Icon(imageVector = Icons.Filled.DateRange, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text = mhs.nim, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                mhs.nim?.let { Text(text = it, fontWeight = FontWeight.Bold, fontSize = 16.sp) }
                 Spacer(modifier = Modifier.weight(1f))
                 IconButton(onClick = { onDelete(mhs) }) {
                     Icon(imageVector = Icons.Default.Delete, contentDescription = null)
@@ -195,7 +195,7 @@ fun CardMhs(
             ) {
                 Icon(imageVector = Icons.Filled.Home, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text = mhs.kelas, fontWeight = FontWeight.Bold)
+                mhs.kelas?.let { Text(text = it, fontWeight = FontWeight.Bold) }
             }
         }
     }

@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.umy.pam_firebase.ui.pages.HomeScreen
+import com.umy.pam_firebase.ui.pages.HomeView
 import com.umy.pam_firebase.ui.theme.PAM_FIREBASETheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PAM_FIREBASETheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(
+                    HomeView(
                         navigateToItemEntry = {
                             // Tambahkan navigasi ke layar entri jika ada
                         },

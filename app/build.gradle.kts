@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.umy.pam_firebase"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.umy.pam_firebase"
@@ -74,4 +74,8 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.navigation:navigation-compose:2.8.3")
+    implementation("com.google.android.gms:play-services-auth:19.2.0")
+    implementation("com.google.firebase:firebase-auth:21.0.1")
+
+    implementation("com.google.android.gms:play-services-base:18.0.1")
 }
