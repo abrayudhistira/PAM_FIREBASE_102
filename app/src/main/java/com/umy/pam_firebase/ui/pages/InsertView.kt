@@ -161,7 +161,7 @@ fun FormMahasiswa(
     modifier: Modifier = Modifier
 
 ) {
-    val jenisKelamin = listOf("Laki-laki", "Perempuan")
+    val gender = listOf("Laki-laki", "Perempuan")
     val kelas = listOf("A", "B", "C", "D", "E")
 
     Column (
@@ -202,15 +202,15 @@ fun FormMahasiswa(
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
-            jenisKelamin.forEach { jk ->
+            gender.forEach { jk ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
                     RadioButton(
-                        selected = mahasiswaEvent.jenisKelamin == jk,
+                        selected = mahasiswaEvent.gender == jk,
                         onClick = {
-                            onValueChange(mahasiswaEvent.copy(jenisKelamin
+                            onValueChange(mahasiswaEvent.copy(gender
                             = jk))
                         },
                     )
@@ -221,7 +221,7 @@ fun FormMahasiswa(
             }
         }
         Text(
-            text = errorState.jenisKelamin ?: "",
+            text = errorState.gender ?: "",
             color = Color.Red
         )
         mahasiswaEvent.alamat?.let {

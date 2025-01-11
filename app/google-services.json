@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "272768150502",
-    "project_id": "pamfirebase-a38d8",
-    "storage_bucket": "pamfirebase-a38d8.firebasestorage.app"
+    "project_number": "232132928105",
+    "project_id": "pamnewdb",
+    "storage_bucket": "pamnewdb.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:272768150502:android:006cd3f0929b37b7258427",
+        "mobilesdk_app_id": "1:232132928105:android:e94b9245c8e62d66fd38f8",
         "android_client_info": {
           "package_name": "com.umy.pam_firebase"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC1VCiby621daOdm8hIbzH4q6w2Je-ApcA"
+          "current_key": "AIzaSyBKM6CzfZi_yxvMLWAk_aRnNt_6is8Uniw"
         }
       ],
       "services": {

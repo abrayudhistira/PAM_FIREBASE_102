@@ -1,5 +1,6 @@
 plugins {
     id("com.google.gms.google-services")
+    //id ("com.google.firebase.crashlytics")
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
@@ -70,12 +71,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    //implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.firebase:firebase-firestore")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.navigation:navigation-compose:2.8.3")
-    implementation("com.google.android.gms:play-services-auth:19.2.0")
-    implementation("com.google.firebase:firebase-auth:21.0.1")
+    //implementation("com.google.android.gms:play-services-auth:19.2.0")
+    //implementation("com.google.firebase:firebase-auth:21.0.1")
 
-    implementation("com.google.android.gms:play-services-base:18.0.1")
+    //implementation("com.google.android.gms:play-services-base:18.0.1")
+    implementation("com.google.firebase:firebase-messaging")
 }
