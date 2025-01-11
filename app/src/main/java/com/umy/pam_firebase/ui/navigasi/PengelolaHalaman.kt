@@ -40,7 +40,7 @@ fun PengelolaHalaman(
         }
         composable(DestinasiDetail.route) { backStackEntry ->
             val nim = backStackEntry.arguments?.getString("nim") ?: ""
-            MahasiswaDetailView(nim = nim)
+            MahasiswaDetailView(nim = nim, navController = navController)
         }
     }
 }
