@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,6 +22,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -27,6 +30,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -52,6 +56,7 @@ fun InsertMhsView(
     val uiEvent = viewModel.uiEvent // State untuk form dan validasi
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     // Event perubahan state untuk snackbar dan navigasi
     LaunchedEffect(uiState) {
@@ -78,11 +83,12 @@ fun InsertMhsView(
     }
 
     Scaffold(
-        modifier = modifier,
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text("Tambah Mahasiswa") },
+                scrollBehavior = scrollBehavior,
                 navigationIcon = {
                     Button(onClick = onBack) {
                         Text("Back")
@@ -96,6 +102,7 @@ fun InsertMhsView(
                 .fillMaxSize()
                 .padding(padding)
                 .padding(16.dp)
+                .verticalScroll(rememberScrollState())
         ) {
             InsertBodyMhs(
                 uiState = uiEvent,
@@ -123,7 +130,7 @@ fun InsertBodyMhs(
     homeUiState: FormState
 ) {
     Column(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -197,7 +204,6 @@ fun FormMahasiswa(
             )
         }
         Text(text = errorState.nim ?: "", color = Color.Red)
-        Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Jenis Kelamin")
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -237,7 +243,6 @@ fun FormMahasiswa(
             )
         }
         Text(text = errorState.alamat ?: "", color = Color.Red)
-        Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Kelas")
         Row {
             kelas.forEach { kelas ->
@@ -275,5 +280,56 @@ fun FormMahasiswa(
             )
         }
         Text(text = errorState.angkatan ?: "", color = Color.Red)
+        //Entry Input For Judul Skripsi
+        mahasiswaEvent.judulskripsi?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(judulskripsi = it))
+                },
+                label = { Text("Judul Skripsi") },
+                isError = errorState.judulskripsi != null,
+                placeholder = { Text("Masukkan Judul Skripsi") },
+            )
+        }
+        Text(
+            text = errorState.judulskripsi ?: "",
+            color = Color.Red
+        )
+        //Entry Input For Dospem 1
+        mahasiswaEvent.dospemsatu?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(dospemsatu = it))
+                },
+                label = { Text("Dosen Pembimbing 1") },
+                isError = errorState.dospemsatu != null,
+                placeholder = { Text("Masukkan Dosen Pembimbing 1") },
+            )
+        }
+        Text(
+            text = errorState.dospemsatu ?: "",
+            color = Color.Red
+        )
+        //Entry Input For Dospem 2
+        mahasiswaEvent.dospemdua?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(dospemdua = it))
+                },
+                label = { Text("Dosen Pembimbing 2") },
+                isError = errorState.dospemdua != null,
+                placeholder = { Text("Masukkan Dosen Pembimbing 2") },
+            )
+        }
+        Text(
+            text = errorState.dospemdua ?: "",
+            color = Color.Red
+        )
     }
 }

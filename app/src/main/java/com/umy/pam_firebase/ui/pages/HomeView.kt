@@ -4,10 +4,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
@@ -51,7 +54,9 @@ fun HomeView(
         HomeStatus(
             homeUiState = viewModel.mhsUiState,
             retryAction = {viewModel.getMhs()},
-            modifier = Modifier.padding(innerPadding),
+            modifier = Modifier
+                .padding(innerPadding),
+                //.verticalScroll(rememberScrollState()),
             onDetailClick = onDetailClick,
             onDeleteClick = {
                 viewModel.deleteMhs(it) // panggil fungsi delete
@@ -196,6 +201,14 @@ fun CardMhs(
                 Icon(imageVector = Icons.Filled.Home, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
                 mhs.kelas?.let { Text(text = it, fontWeight = FontWeight.Bold) }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(imageVector = Icons.Filled.Email, contentDescription = null)
+                Spacer(modifier = Modifier.width(8.dp))
+                mhs.judulskripsi?.let { Text(text = it, fontWeight = FontWeight.Bold) }
             }
         }
     }

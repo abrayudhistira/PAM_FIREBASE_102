@@ -33,7 +33,11 @@ class InsertViewModel (
             gender = if (event.gender?.isNotEmpty() == true) null else "Jenis Kelamin tidak boleh kosong",
             alamat = if (event.alamat?.isNotEmpty() == true) null else "Alamat tidak boleh kosong",
             kelas = if (event.kelas?.isNotEmpty() == true) null else "Kelas tidak boleh kosong",
-            angkatan = if (event.angkatan?.isNotEmpty() == true) null else "angkatan tidak boleh kosong"
+            angkatan = if (event.angkatan?.isNotEmpty() == true) null else "angkatan tidak boleh kosong",
+            judulskripsi = if (event.judulskripsi?.isNotEmpty() == true) null else "Judul Skripsi tidak boleh kosong",
+            dospemsatu = if (event.dospemsatu?.isNotEmpty() == true) null else "Dosen Pembimbing 1 tidak boleh kosong",
+            dospemdua = if (event.dospemdua?.isNotEmpty() == true) null else "Dosen Pembimbing 2 tidak boleh kosong"
+
         )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
@@ -87,7 +91,11 @@ data class FormErrorState(
     val gender: String? = null,
     val alamat: String? = null,
     val kelas: String? = null,
-    val angkatan: String? = null
+    val angkatan: String? = null,
+    val judulskripsi: String? = null,
+    val dospemsatu: String? = null,
+    val dospemdua: String? = null
+
 ) {
     fun isValid(): Boolean {
         return nim == null && nama == null && gender == null &&
@@ -102,7 +110,10 @@ data class MahasiswaEvent(
     val gender: String? = "",
     val alamat: String? = "",
     val kelas: String? = "",
-    val angkatan: String? = ""
+    val angkatan: String? = "",
+    val judulskripsi: String? = "",
+    val dospemsatu: String? = "",
+    val dospemdua: String? = ""
 )
 
 // Menyimpan input form kedalam entity
@@ -112,5 +123,8 @@ fun MahasiswaEvent.toMhsModel() : Mahasiswa = Mahasiswa(
     gender = gender?: "",
     alamat = alamat?: "",
     kelas = kelas?: "",
-    angkatan = angkatan?: ""
+    angkatan = angkatan?: "",
+    judulskripsi = judulskripsi?: "",
+    dospemsatu = dospemsatu?: "",
+    dospemdua = dospemdua?: ""
 )

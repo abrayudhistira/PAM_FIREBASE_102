@@ -60,6 +60,12 @@ fun MahasiswaDetailView(nim: String, viewModel: HomeViewModel = viewModel(factor
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(text = "Angkatan: ${it.angkatan}", fontSize = 18.sp)
                     Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = "Judul Skripsi: ${it.judulskripsi}", fontSize = 18.sp)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = "Dosen Pembimbing 1: ${it.dospemsatu}", fontSize = 18.sp)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = "Dosen Pembimbing 2: ${it.dospemdua}", fontSize = 18.sp)
+                    Spacer(modifier = Modifier.height(8.dp))
                     // Add other fields as necessary
 
                     Spacer(modifier = Modifier.height(16.dp))

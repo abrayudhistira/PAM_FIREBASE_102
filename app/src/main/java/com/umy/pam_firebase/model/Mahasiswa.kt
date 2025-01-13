@@ -7,5 +7,8 @@ data class Mahasiswa(
     val alamat : String? = null,
     val gender : String? = null,
     val kelas : String? = null,
-    val angkatan : String? = null
+    val angkatan : String? = null,
+    val judulskripsi : String? = null,
+    val dospemsatu : String? = null,
+    val dospemdua : String? = null
 )
